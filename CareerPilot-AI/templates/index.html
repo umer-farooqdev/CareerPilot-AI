@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerPilot AI | Find Your Direction</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav class="nav"><a class="brand" href="/">✦ CareerPilot <span>AI</span></a><span class="nav-note">Your next step starts here</span></nav>
+  <main class="hero-wrap">
+    <section class="hero-copy"><div class="eyebrow">AI-POWERED CAREER EXPLORATION</div><h1>Your future has<br><span>more than one path.</span></h1><p>Share what you enjoy, what you know, and where you want to go. CareerPilot creates career ideas and a practical first-month learning roadmap.</p><div class="mini-points"><span>✓ Personalized ideas</span><span>✓ Skills to develop</span><span>✓ Beginner-friendly roadmap</span></div><div class="note-card"><strong>Explore, don't stress.</strong><p>Recommendations are starting points for research, not a guarantee of career success.</p></div></section>
+    <section class="form-card"><div class="form-heading"><div><div class="eyebrow">LET'S GET TO KNOW YOU</div><h2>Build your career profile</h2></div><div class="spark">✦</div></div>
+      {% if error %}<div class="error">{{ error }}</div>{% endif %}
+      <form method="POST" action="/">
+        <label for="name">Your name</label><input id="name" name="name" placeholder="e.g. Umer" value="{{ form.get('name','') }}" maxlength="60">
+        <label for="education">Current education</label><select id="education" name="education"><option>High school</option><option>Intermediate / College</option><option selected>Undergraduate</option><option>Graduate</option><option>Career changer</option></select>
+        <label for="interests">What topics or activities interest you? *</label><textarea id="interests" name="interests" required placeholder="e.g. AI, solving problems, building websites, helping people">{{ form.get('interests','') }}</textarea>
+        <label for="skills">What skills do you currently have? *</label><textarea id="skills" name="skills" required placeholder="e.g. Python basics, HTML/CSS, communication, Excel">{{ form.get('skills','') }}</textarea>
+        <label for="goal">Your current goal</label><select id="goal" name="goal"><option>Get my first internship</option><option>Choose a university specialization</option><option>Build a project portfolio</option><option>Prepare for my first job</option><option>Explore career options</option></select>
+        <button class="primary-btn" type="submit">Generate my career roadmap <span>→</span></button><p class="privacy">Your profile is processed for this request and is not saved to a database by this demo.</p>
+      </form>
+    </section>
+  </main>
+  <footer>CareerPilot AI · Student Career Guidance Prototype · Built for Pak Angels Final Hackathon</footer>
+</body></html>
